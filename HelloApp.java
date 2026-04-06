@@ -7,17 +7,17 @@ public class HelloApp {
         if (args.length == 0) {
             message = "Hello, World!";
         } else {
-            // Build names using enhanced for loop
-            StringBuilder names = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
 
+            // Enhanced for loop
             for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", ");
-                }
-                names.append(name);
+                nameBuilder.append(name).append(", ");
             }
 
-            message = "Hello, " + names.toString() + "!";
+            // Remove trailing ", "
+            String names = nameBuilder.substring(0, nameBuilder.length() - 2);
+
+            message = "Hello, " + names + "!";
         }
 
         System.out.println(message);
