@@ -3,17 +3,23 @@ public class HelloApp {
 
         String message;
 
-        // Check if arguments exist
-        if (args.length > 0) {
-            // Join all names with comma and space
-            String names = String.join(", ", args);
-            message = "Hello, " + names + "!";
-        } else {
-            // Default case
+        // Default case
+        if (args.length == 0) {
             message = "Hello, World!";
+        } else {
+            // Build names using enhanced for loop
+            StringBuilder names = new StringBuilder();
+
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+
+            message = "Hello, " + names.toString() + "!";
         }
 
-        // Print result
         System.out.println(message);
     }
 }
